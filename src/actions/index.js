@@ -1,5 +1,15 @@
-export const REQUEST_HELLO_WORLD = 'REQUEST_HELLO_WORLD'
-export const RECEIVE_HELLO_WORLD = 'RECEIVE_HELLO_WORLD'
+import * as types from '../constants/ActionTypes'
+export const fetchCompany = symbol => ({
+  type: types.FETCH_COMPANY,
+  symbol
+})
 
-export const requestHelloWorld = () => ({type: REQUEST_HELLO_WORLD})
-export const receiveHelloWorld = (text) => ({type: RECEIVE_HELLO_WORLD, text})
+export const fetchCompanySuccess = company => ({
+  type: types.FETCH_COMPANY_SUCCESS,
+  company
+})
+
+export const fetchCompanyFailure = message => ({
+  type: types.FETCH_COMPANY_FAILURE,
+  message
+})

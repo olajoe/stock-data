@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import helloWorld from './helloWorld'
+import { fetchCompanyReducer } from './fetchCompany'
 
 
-export default  combineReducers({
-    helloWorld
+export default combineReducers({
+    fetchCompanyReducer
 })

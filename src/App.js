@@ -1,11 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from  'react-redux'
+import { Route } from 'react-router-dom'
 
 import store from './store'
-import Home from './components/Home' 
+import CompanyDetail from './components/CompanyDetail' 
+
+const About = () => <h1>About</h1>
 
 export default () => (
   <Provider store={store}>
-    <Home/>
+    <div>
+      <Route
+        path='/'
+        exact
+        render={() => <div>Take me home</div>}
+      />
+      <Route
+        path='/about'
+        exact
+        component={ About }
+      />
+      <Route 
+        path='/company' 
+        exact
+        component={ CompanyDetail } 
+      />
+      <Route
+        path='/company/:symbol'
+        exact
+        component={ CompanyDetail }
+      />
+    </div>
   </Provider>
 )
