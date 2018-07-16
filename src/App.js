@@ -5,8 +5,9 @@ import { Route } from 'react-router-dom'
 import store from './store'
 import Company from './containers/Company' 
 import CompanyNews from './containers/CompanyNews'
+import Home from './containers/Home'
+import About from './containers/About'
 
-const About = () => <h1>About</h1>
 
 export default () => (
   <Provider store={store}>
@@ -14,7 +15,7 @@ export default () => (
       <Route
         path='/'
         exact
-        render={() => <div>Take me home</div>}
+        component= { Home }
       />
       <Route
         path='/about'
