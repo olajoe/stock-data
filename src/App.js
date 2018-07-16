@@ -3,7 +3,7 @@ import { Provider } from  'react-redux'
 import { Route } from 'react-router-dom'
 
 import store from './store'
-import CompanyDetail from './components/CompanyDetail' 
+import Company from './containers/Company' 
 
 const About = () => <h1>About</h1>
 
@@ -23,12 +23,12 @@ export default () => (
       <Route 
         path='/company' 
         exact
-        component={ CompanyDetail } 
+        component={ Company } 
       />
       <Route
         path='/company/:symbol'
         exact
-        component={ CompanyDetail }
+        component={ Company }
       />
     </div>
   </Provider>

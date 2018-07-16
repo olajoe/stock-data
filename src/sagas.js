@@ -5,7 +5,7 @@ import * as companyApi from './api/getCompany'
 import {
   fetchCompanySuccess,
 }
-from './actions/index'
+from './actions'
 
 
 function* fetchCompanyFromSymbol(action) {
