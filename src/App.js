@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 
 import store from './store'
 import Company from './containers/Company' 
+import CompanyNews from './containers/CompanyNews'
 
 const About = () => <h1>About</h1>
 
@@ -29,6 +30,16 @@ export default () => (
         path='/company/:symbol'
         exact
         component={ Company }
+      />
+      <Route
+        path='/news'
+        exact
+        component= { CompanyNews }
+      />
+      <Route
+        path='/news/:symbol/last/:range'
+        exact
+        component= { CompanyNews }
       />
     </div>
   </Provider>

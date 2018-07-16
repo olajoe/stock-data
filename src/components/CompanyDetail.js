@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const CompanyView = ({
+export const CompanyDetail= ({
   companyName,
   symbol,
   exchange,
@@ -29,7 +29,7 @@ export const CompanyView = ({
   )
 }
 
-CompanyView.propTypes = {
+CompanyDetail.propTypes = {
   companyName: PropTypes.string,
   symbol: PropTypes.string,
   exchange: PropTypes.string,
