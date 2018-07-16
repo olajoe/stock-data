@@ -49,7 +49,6 @@ class CompanyNews extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     const { companyNews } = this.props
-    console.log(this.props)
 
     return (
       <div style={{ textAlign: 'center' }}>
