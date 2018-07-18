@@ -9,7 +9,8 @@ import {
 } from '../actions'
 
 import {
-  getCompanySelector
+  getCompanySelector,
+  companySelector
 } from '../reducers/selector'
 
 import { CompanyDetail } from '../components/CompanyDetail'

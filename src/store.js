@@ -4,13 +4,16 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import reducer from './reducers'
 import mySaga from './sagas'
-
+import { fromJS, Map } from 'immutable'
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
 
+const initialState = Map({})
+
 const store = createStore(
   reducer,
+  initialState,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
