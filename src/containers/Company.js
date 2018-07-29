@@ -10,7 +10,7 @@ import {
 
 import {
   getCompanySelector,
-  companySelector
+  getErrorResponseCompanySelector
 } from '../reducers/selector'
 
 import { CompanyDetail } from '../components/CompanyDetail'
@@ -90,7 +90,8 @@ class Company extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  company: getCompanySelector(state)
+  company: getCompanySelector(state),
+  errorResponse: getErrorResponseCompanySelector(state)
 })
 
 function mapDispatchToProps(dispatch) {
