@@ -13,7 +13,8 @@ import {
 } from '../actions'
 
 import {
-  getCompanyNewsSelector
+  getCompanyNewsSelector,
+  getErrorResponseNewsSelector
 } from '../reducers/selector'
 
 const FormItem = Form.Item
@@ -48,7 +49,7 @@ class CompanyNews extends Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { companyNews } = this.props
+    const { companyNews, errorResponse } = this.props
 
     return (
       <div style={{ textAlign: 'center' }}>
@@ -86,6 +87,7 @@ class CompanyNews extends Component {
             
             <CompanyNewsList
               news= {companyNews}
+              errorResponse={errorResponse}
             />
 
           </Content>
@@ -98,7 +100,8 @@ class CompanyNews extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  companyNews: getCompanyNewsSelector(state)
+  companyNews: getCompanyNewsSelector(state),
+  errorResponse: getErrorResponseNewsSelector(state)
 })
 
 function mapDispatchToProps(dispatch) {

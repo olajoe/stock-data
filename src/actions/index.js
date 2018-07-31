@@ -29,7 +29,7 @@ export const fetchCompanyNewsSuccess = news => ({
   news
 })
 
-export const fetchCompanyNewsFailure = message => ({
+export const fetchCompanyNewsFailure = errorResponse => ({
   type: types.FETCH_COMPANY_NEWS_FAILURE ,
-  message
+  errorResponse
 })

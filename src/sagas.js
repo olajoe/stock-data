@@ -6,7 +6,9 @@ import * as newsApi from './api/getNews'
 
 import {
   fetchCompanySuccess,
-  fetchCompanyNewsSuccess
+  fetchCompanyFailure,
+  fetchCompanyNewsSuccess,
+  fetchCompanyNewsFailure
 }
 from './actions'
 
@@ -18,7 +20,7 @@ function* fetchCompanyFromSymbol(action) {
     yield put(fetchCompanySuccess(companyData))
 
   } catch (error) {
-    yield put(fetchCompanySuccess({ error }))
+    yield put(fetchCompanyFailure(error.response))
   }
 }
 
@@ -28,7 +30,7 @@ function* fetchCompanyNews(action) {
     const newsData = yield call(newsApi.getNewsCompanyAPI, symbol, range)
     yield put(fetchCompanyNewsSuccess(newsData))
   } catch (error) {
-    yield put(fetchCompanyNewsSuccess({ error }))
+    yield put(fetchCompanyNewsFailure(error.response))
   }
 }
 

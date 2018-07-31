@@ -1,20 +1,19 @@
-import { createSelector } from 'reselect'
-import * as _ from 'lodash'
+// import { createSelector } from 'reselect'
+// import * as _ from 'lodash'
 
-const companySelector = state => {
-  return _.get(state, 'fetchCompanyReducer', {})
+
+export const getCompanySelector = state => {
+  return state.get('fetchCompanyReducer').get('company',{}).toJS()
 }
 
-export const getCompanySelector = createSelector(
-  companySelector,
-  data => _.get(data, 'company', {})
-)
-
-const companyNewsSelector = state => {
-  return _.get(state, 'fetchCompanyNews', {})
+export const getErrorResponseCompanySelector = state => {
+  return state.get('fetchCompanyReducer').get('errorResponse',{}).toJS()
 }
 
-export const getCompanyNewsSelector = createSelector(
-  companyNewsSelector,
-  data => _.get(data, 'companyNews', [])
-)
+export const getCompanyNewsSelector = state => {
+  return state.get('fetchCompanyNews').get('companyNews',{}).toJS()
+}
+
+export const getErrorResponseNewsSelector = state => {
+  return state.get('fetchCompanyNews').get('errorResponse', {}).toJS()
+}
