@@ -1,10 +1,9 @@
 // import { combineReducers } from 'redux'
-import { combineReducers } from 'redux-immutable';
-import { fetchCompanyReducer } from './fetchCompany'
-import { fetchCompanyNews } from './fetchCompanyNews'
-
+import { combineReducers } from 'redux-immutable'
+import { default as companyReducer } from './fetchCompany'
+import { default as companyNewsReducer } from './fetchCompanyNews'
 
 export default combineReducers({
-    fetchCompanyReducer,
-    fetchCompanyNews
+  companyModule: companyReducer,
+  companyNewsModule: companyNewsReducer
 })

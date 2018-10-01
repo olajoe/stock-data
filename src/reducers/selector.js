@@ -3,28 +3,28 @@
 
 export const getCompanySelector = state => {
   return state
-    .get('fetchCompanyReducer')
-    .get('company')
+    .get('companyModule')
+    .get('companyInfo')
     .toJS()
 }
 
 export const getErrorResponseCompanySelector = state => {
   return state
-    .get('fetchCompanyReducer')
+    .get('companyModule')
     .get('errorResponse', {})
     .toJS()
 }
 
 export const getCompanyNewsSelector = state => {
   return state
-    .get('fetchCompanyNews')
-    .get('companyNews')
+    .get('companyNewsModule')
+    .get('companyNewsInfo')
     .toJS()
 }
 
 export const getErrorResponseNewsSelector = state => {
   return state
-    .get('fetchCompanyNews')
+    .get('companyNewsModule')
     .get('errorResponse', {})
     .toJS()
 }
