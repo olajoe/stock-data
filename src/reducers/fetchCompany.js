@@ -3,14 +3,14 @@ import { fromJS } from 'immutable'
 import * as types from '../constants/ActionTypes'
 
 const initialState = fromJS({
-  company: {},
+  companyInfo: {},
   errorResponse: {}
 })
 
-export const fetchCompanyReducer = (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_COMPANY_SUCCESS:
-      return state.set('company', fromJS(action.company || {}))
+      return state.set('companyInfo', fromJS(action.company || {}))
     case types.FETCH_COMPANY_FAILURE:
       return state.set('errorResponse', fromJS(action.message))
     default:

@@ -3,6 +3,7 @@ import { bindActionCreators, compose } from 'redux'
 import { connect } from 'react-redux'
 import { Form, Input, Button, Layout } from 'antd'
 import * as _ from 'lodash'
+import PropTypes from 'prop-types'
 
 import { HeaderComponent } from './Header'
 import { FooterComponent } from './Footer'
@@ -33,32 +34,45 @@ function mapDispatchToProps(dispatch) {
 }
 
 class CompanyNews extends Component {
+  static defaultProps = {
+    companyNews: PropTypes.array,
+    errorResponse: PropTypes.object
+  }
+
   componentDidMount = () => {
-    const { match } = this.props
+    const { match, fetchCompanyNews } = this.props
 
     const symbol = _.get(match, 'params.symbol', null)
     const range = _.get(match, 'params.range', null)
 
     if (!_.isNil(symbol) || !_.isNil(range)) {
-      this.props.fetchCompanyNews(symbol, range)
+      fetchCompanyNews(symbol, range)
     }
   }
 
   handleSubmit = e => {
+    const {
+      form: { validateFields },
+      fetchCompanyNews,
+      history
+    } = this.props
     e.preventDefault()
-    this.props.form.validateFields((err, values) => {
+    validateFields((err, values) => {
       if (!err) {
         let symbol = _.get(values, 'symbol', '')
         let range = _.get(values, 'range', '')
-        this.props.fetchCompanyNews(symbol, range)
-        this.props.history.replace(`/news/${symbol}/last/${range}`)
+        fetchCompanyNews(symbol, range)
+        history.replace(`/news/${symbol}/last/${range}`)
       }
     })
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form
-    const { companyNews, errorResponse } = this.props
+    const {
+      form: { getFieldDecorator },
+      companyNews,
+      errorResponse
+    } = this.props
 
     return (
       <div style={{ textAlign: 'center' }}>
